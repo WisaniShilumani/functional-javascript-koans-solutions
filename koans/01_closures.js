@@ -4,6 +4,11 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // counter :: () → () → Number
+    const counter = (x = 1) => {
+      return () => {
+        return x++
+      }
+    }
 
     /***************************************************************/
 
@@ -26,6 +31,17 @@ describe("Closures", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // unique :: () → a → Boolean
+    const unique = (element, index, array) => {
+      const addedElements = []
+      return (element) => {
+        const elementExistsAlready = addedElements.indexOf(element) === -1
+        if (elementExistsAlready) {
+          addedElements.push(element)
+        }
+
+        return elementExistsAlready
+      }
+    }
 
     /***************************************************************/
 

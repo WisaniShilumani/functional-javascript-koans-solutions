@@ -3,6 +3,13 @@ describe("Recursion", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fact :: Number → Number
+    const fact = number => {
+      if (number <= 1) {
+        return 1
+      }
+
+      return number * fact(number - 1)
+    }
 
     /***************************************************************/
 
@@ -15,6 +22,18 @@ describe("Recursion", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fact :: Number → Number
+    const fact = number => {
+      if (number <= 1) {
+        return 1
+      }
+
+      const helper = (number, state, result = 1) => {
+        if (state === 0) return result
+        return helper(number, state - 1, result * state)
+      }
+
+      return helper(number, number)
+    }
 
     /***************************************************************/
 
@@ -27,6 +46,12 @@ describe("Recursion", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fib :: Number → Number
+    const fib = index => {
+      if (index === 0) return 0
+      if (index <= 2) return 1
+
+      return fib(index - 1) + fib(index - 2)
+    }
 
     /***************************************************************/
 
@@ -40,6 +65,16 @@ describe("Recursion", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fact :: Number → Number
+    const fib = (index) => {
+      if (index === 0) return 0
+
+      const helper = (index, next = 1, current = 1) => {
+        if (index === 1) return current
+        return helper(index - 1, next + current, next)
+      }
+
+      return helper(index)
+    }
 
     /***************************************************************/
 

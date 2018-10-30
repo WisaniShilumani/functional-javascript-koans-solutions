@@ -5,6 +5,7 @@ describe("Immutability", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // HINT: Look for an appropriate method on the Object constructor
+    Object.freeze(recipients)
 
     /***************************************************************/
 

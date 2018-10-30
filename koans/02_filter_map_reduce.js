@@ -4,6 +4,9 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: Number → Boolean
+    const predicate = (number) => {
+      return !isNaN(number) && number % 2 === 0
+    }
 
     /***************************************************************/
 
@@ -20,6 +23,11 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // predicate :: String → Boolean
+    const predicate = (string) => {
+      const stringArray = string.split('')
+      const reverseArray = stringArray.reverse()
+      return reverseArray.join('').toLowerCase() !== string.toLowerCase()
+    }
 
     /***************************************************************/
 
@@ -33,6 +41,17 @@ describe("Filter", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+    const filter = (predicate, array) => {
+      const filteredArray = []
+
+      array.forEach(element => {
+        if (predicate(element)) {
+          filteredArray.push(element)
+        }
+      })
+
+      return filteredArray
+    }
 
     /***************************************************************/
 
@@ -50,6 +69,23 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fibonacci :: Number → Number
+    const fibonacci = index => {
+      const numbers = []
+      for (let i = 0; i <= index; i++) {
+        let k
+        if (i === 0) {
+          k = 0
+        } else if (i <= 2) {
+          k = 1
+        } else {
+          k = numbers[i - 1] + numbers[i - 2]
+        }
+
+        numbers.push(k)
+      }
+
+      return numbers[index]
+    }
 
     /***************************************************************/
 
@@ -63,6 +99,15 @@ describe("Map", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+    const map = (predicate, array) => {
+      const mappedArray = []
+
+      array.forEach(element => {
+        mappedArray.push(predicate(element))
+      })
+
+      return mappedArray
+    }
 
     /***************************************************************/
 
@@ -78,6 +123,7 @@ describe("Map", () => {
     // HINT: You can do it in one line using Array.from (or spread operator), array constructor and built-in map function
 
     // range :: (Number, Number) → [Number]
+    const range = (min, max) => Array.apply(0, new Array(max - min + 1)).map((element, index) => index + min)
 
     /***************************************************************/
 
@@ -97,6 +143,12 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // fromPairs :: ({ [a]: b }) → [{a, b}]
+    const fromPairs = (array) => {
+      return array.reduce((accumulator, current) => {
+        accumulator[current[0]] = current[1]
+        return accumulator
+      }, {})
+    }
 
     /***************************************************************/
 
@@ -109,6 +161,12 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // map :: ((a → b), [a]) → [b]
+    const map = (mapper, array) => {
+      return array.reduce((accumulator, current, index) => {
+        accumulator[index] = mapper(current)
+        return accumulator
+      }, [])
+    }
 
     /***************************************************************/
 
@@ -122,6 +180,15 @@ describe("Reduce", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // filter :: ((a → Boolean), [a]) → [a]
+    const filter = (predicate, array) => {
+      return array.reduce((accumulator, current, index) => {
+        if (predicate(current)) {
+          accumulator.push(current)
+        }
+
+        return accumulator
+      }, [])
+    }
 
     /***************************************************************/
 

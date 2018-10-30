@@ -3,7 +3,10 @@ describe("Pure functions", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // append :: ([a], a) -> [a]
-
+    const append = (array, element) => {
+      array.push(element)
+      return array
+    }
     /***************************************************************/
 
     test("mutates passed array", () => {
@@ -27,6 +30,9 @@ describe("Pure functions", () => {
     /********************* YOUR IMPLEMENTATION *********************/
 
     // append :: ([a], a) -> [a]
+    const append = (array, element) => {
+      return [...array, element]
+    }
 
     /***************************************************************/
 
